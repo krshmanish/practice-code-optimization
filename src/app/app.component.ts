@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'unitTesting';
+  isToggle: Boolean = true;
+
+  constructor() {}
+
+  getSum(a: any, b: any) {
+    return a + b;
+  }
+
+  toggleState() {
+    this.isToggle = !this.isToggle;
+  }
 }

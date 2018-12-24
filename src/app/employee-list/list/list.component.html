@@ -1,0 +1,8 @@
+<div class="tile">
+  <div class="text-ellipsis" title="{{ item.id }}">{{ item.id }}</div>
+  <div class="text-ellipsis" title="{{ item.name }}">{{ item.name }}</div>
+  <i class="fa fa-ellipsis-v options-icon" (click)="toggleOptions()"></i>
+  <div class="tile-options" appClickOutside (clickOutside)='toggleOptions()' *ngIf="isOptionsShow">
+    <i class="fa fa-edit" (click)="onClick('EDIT', item)"></i> <i class="fa fa-trash" aria-hidden="true" (click)="onClick('DELETE', item)"></i>
+  </div>
+</div>

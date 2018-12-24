@@ -1,0 +1,4 @@
+<app-name-input (newValue)='onNewValueEmitted($event)'></app-name-input>
+<div class='list-container'>
+  <app-list *ngFor='let item of listData' [item]='item' (editClicked)='onEditClicked($event)' (deleteClicked)='onDeleteClicked($event)'></app-list>
+</div>

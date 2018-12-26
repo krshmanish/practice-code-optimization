@@ -4,6 +4,8 @@ import { ListComponent } from './list/list.component';
 import { NameInputComponent } from './name-input/name-input.component';
 import { EmployeeListComponent } from './employee-list.component';
 import { ClickOutsideDirective } from '../directives/click-outside.directive';
+import { GithubService } from '../services/github.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { ClickOutsideDirective } from '../directives/click-outside.directive';
     NameInputComponent,
     ClickOutsideDirective
   ],
-  imports: [CommonModule],
-  exports: [EmployeeListComponent]
+  imports: [CommonModule, HttpClientModule],
+  exports: [EmployeeListComponent],
+  providers: [GithubService]
 })
 export class EmployeeListModule {}

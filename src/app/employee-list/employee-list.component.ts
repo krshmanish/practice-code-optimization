@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../services/github.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -34,17 +35,31 @@ export class EmployeeListComponent implements OnInit {
   ];
 
   selectedItem: any;
-  constructor() {}
+  searchKey: string;
+  pageNo: number;
+  filterValue: string;
+  pageLimit: number;
+  constructor(private githubService: GithubService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchKey = 'Manish';
+    this.pageLimit = 20;
+    this.pageNo = 1;
+    this.filterValue = null;
+    this.getData();
+  }
 
-  onNewValueEmitted(event) {
-    const newObj = {
-      name: event,
-      id: Date.now().toString()
-    };
-    this.listData.push(newObj);
-    console.log(event);
+  getData() {
+    this.githubService
+      .getData(this.searchKey, this.pageNo, this.filterValue, this.pageLimit)
+      .subscribe(res => {
+        this.listData = res['items'];
+      });
+  }
+
+  onNewValueEmitted(searchedKey) {
+    this.searchKey = searchedKey;
+    this.getData();
   }
 
   onDeleteClicked(event) {

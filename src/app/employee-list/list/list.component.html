@@ -1,6 +1,11 @@
 <div class="tile">
-  <div class="text-ellipsis" title="{{ item.id }}">{{ item.id }}</div>
-  <div class="text-ellipsis" title="{{ item.name }}">{{ item.name }}</div>
+  <div class="img-container">
+    <img src="{{item.avatar_url}}" alt="{{item.login}}">
+  </div>
+  <div class="details-container">
+    <div class="text-ellipsis" title="{{ item.login }}">User Name : {{ item.login }}</div>
+    <div class="text-ellipsis" title="{{ item.name }}">Repository : {{ item.repos_url }}</div>
+  </div>
   <i class="fa fa-ellipsis-v options-icon" (click)="toggleOptions()"></i>
   <div class="tile-options" appClickOutside (clickOutside)='toggleOptions()' *ngIf="isOptionsShow">
     <i class="fa fa-edit" (click)="onClick('EDIT', item)"></i> <i class="fa fa-trash" aria-hidden="true" (click)="onClick('DELETE', item)"></i>

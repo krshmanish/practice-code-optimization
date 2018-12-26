@@ -4,10 +4,23 @@
     padding: 12px;
     box-sizing: border-box;
     border-radius: 4px;
-    width: 120px;
+    width: 500px;
     margin-top: 12px;
     padding-right: 18px;
     position: relative;
+    display: flex;
+    .img-container {
+      width: 60px;
+      margin-right: 14px;
+      img {
+        width: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+    .details-container {
+      width: calc(100% - 60px);
+    }
     i:hover {
       font-size: 18px;
       color: black;

@@ -13,10 +13,10 @@
   </div>
   <div class="item-details" appClickOutside (clickOutside)='hideDetails()' *ngIf="isDetailsShow">
     <div *ngFor='let item of itemDetails' class='details-row'>
-      <div class='details-row-row'>Name : {{item.name}}</div>
-      <div class='details-row-row'>Language : {{item.language}}</div>
-      <div class='details-row-row'>Default Branch : {{item.default_branch}}</div>
-      <div class='details-row-row'>Git url : {{item.git_url}}</div>
+      <div class='details-row-row'>Name : {{item.name ? item.name : 'Not Available'}}</div>
+      <div class='details-row-row'>Language : {{item.language ? item.language : 'Not Available'}}</div>
+      <div class='details-row-row'>Default Branch : {{item.default_branch ? item.default_branch : 'Not Available'}}</div>
+      <div class='details-row-row'>Git url : {{item.git_url ? item.git_url : 'Not Available'}}</div>
     </div>
     <div *ngIf='!isAvailable' class='not-available'>
       Not Available...

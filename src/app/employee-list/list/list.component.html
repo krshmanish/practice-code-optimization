@@ -4,10 +4,22 @@
   </div>
   <div class="details-container">
     <div class="text-ellipsis" title="{{ item.login }}">User Name : {{ item.login }}</div>
-    <div class="text-ellipsis" title="{{ item.name }}">Repository : {{ item.repos_url }}</div>
+    <div class="text-ellipsis" title="{{ item.name }}">Repository : <a href="{{item.repos_url}}" target="_new">{{ item.repos_url }}</a></div>
   </div>
   <i class="fa fa-ellipsis-v options-icon" (click)="toggleOptions()"></i>
   <div class="tile-options" appClickOutside (clickOutside)='toggleOptions()' *ngIf="isOptionsShow">
-    <i class="fa fa-edit" (click)="onClick('EDIT', item)"></i> <i class="fa fa-trash" aria-hidden="true" (click)="onClick('DELETE', item)"></i>
+    <i class="fa fa-edit" (click)="onClick('EDIT', item)" title='Details'></i>
+    <i class="fa fa-trash" aria-hidden="true" (click)="onClick('DELETE', item)" title='Options'></i>
+  </div>
+  <div class="item-details" appClickOutside (clickOutside)='hideDetails()' *ngIf="isDetailsShow">
+    <div *ngFor='let item of itemDetails' class='details-row'>
+      <div class='details-row-row'>Name : {{item.name}}</div>
+      <div class='details-row-row'>Language : {{item.language}}</div>
+      <div class='details-row-row'>Default Branch : {{item.default_branch}}</div>
+      <div class='details-row-row'>Git url : {{item.git_url}}</div>
+    </div>
+    <div *ngIf='!isAvailable' class='not-available'>
+      Not Available...
+    </div>
   </div>
 </div>

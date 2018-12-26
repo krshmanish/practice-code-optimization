@@ -7,39 +7,14 @@ import { GithubService } from '../services/github.service';
   styleUrls: ['./employee-list.component.less']
 })
 export class EmployeeListComponent implements OnInit {
-  listData = [
-    {
-      name: 'Lorem',
-      id: '1'
-    },
-    {
-      name: 'Ipsum',
-      id: '2'
-    },
-    {
-      name: 'Dolor',
-      id: '3'
-    },
-    {
-      name: 'Hayat',
-      id: '4'
-    },
-    {
-      name: 'Manogos',
-      id: '5'
-    },
-    {
-      name: 'Malibu',
-      id: '6'
-    }
-  ];
+  listData: any;
 
   selectedItem: any;
   searchKey: string;
   pageNo: number;
   filterValue: string;
   pageLimit: number;
-  constructor(private githubService: GithubService) {}
+  constructor(private githubService: GithubService) { }
 
   ngOnInit() {
     this.searchKey = 'Manish';

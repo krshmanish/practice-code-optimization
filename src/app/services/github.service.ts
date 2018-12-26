@@ -12,4 +12,8 @@ export class GithubService {
   getData(searchKey: string, pageNo: number, filterValue: string, pageLimit: number) {
     return this.httpClient.get(this.baseUrl + '?page=' + pageNo + '&per_page=' + pageLimit + '&q=' + searchKey + '&' + filterValue);
   }
+
+  getSelectedData(url) {
+    return this.httpClient.get(url);
+  }
 }
